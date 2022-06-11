@@ -1,0 +1,15 @@
+/* CSS HEX */
+:root {
+    --dark-byzantium: #6c3a5cff;
+    --castleton-green: rgb(23, 93, 67);
+    --chinese-red: #b02e0cff;
+    --ocean-green: #26c485ff;
+    --viridian-green: #32908fff;
+}
+
+body {
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+

@@ -1,0 +1,13 @@
+
+.nb-button {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 12px 8px 12px;
+
+    /* temp styles */
+    background-color: var(--viridian-green);
+}
+
+.nb-sel {
+    background-color: var(--ocean-green);
+}

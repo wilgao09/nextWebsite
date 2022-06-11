@@ -1,0 +1,19 @@
+
+
+.card {
+    background-color: lightgoldenrodyellow;
+    margin: 8px 1px;
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: larger;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.card-date {
+    color: grey;
+    font-size: smaller;
+    padding: 0px 2px 2px 24px;
+}
