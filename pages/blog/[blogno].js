@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Markdown from 'markdown-to-jsx'
 
-import Blogs from './brepo'
+import Blogs from '../../scripts/brepo'
 import React from "react";
 
 import Header from '../../components/Cheader'

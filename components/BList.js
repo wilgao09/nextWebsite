@@ -1,6 +1,6 @@
 
 import BCard from './BCard'
-import Blogs from '../pages/blog/brepo'
+import Blogs from '../scripts/brepo'
 
 export default function BList() {
     var titles = Object.keys(Blogs).sort((a,b) => b.localeCompare(a))
