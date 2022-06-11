@@ -1,1 +1,5 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# nextWebsite
+
+### The project title is a double entendre 
+
+Github repo for my personal website
