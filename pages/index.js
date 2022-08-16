@@ -1,237 +1,68 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import Header from '../components/Cheader'
 import Layout from '../components/Clayout'
 import MContent from '../components/MContent'
 
-export default function Home() {
-  return (
-      <Layout>
+export default function Home(props) {
+    useEffect(function onFirstMount() {
+        let dloc = document.getElementById("github-date")
+        const getLastGHPush = async () => {
+            let res = await fetch('https://api.github.com/repos/wilgao09/nextWebsite/commits')
+            let commit = await res.json()
+            commit = commit[0].commit.author.date
+            commit = `The last commit to master was on ${commit.slice(0,10)}`
+            dloc.innerHTML = commit
+            
+            return commit
+        }   
+        getLastGHPush()
+    })
+    return (
+        <Layout>
             <Head>
-                <title> Landing </title>
-                
+                <title> Home </title>
             </Head>
             <Header tno={0}/>
 
             <MContent>
-                Im typing text directly into the html file. 
-                I think that this is pretty bad. This is a massive WIP.
-                I dont actually know what to populate this page with.
+                My name is William Gao, and I am a junior currently studying 
+                at Stony Brook University. My current interests are in compiler 
+                design, general software engineering, and algorithmic analysis. Most
+                recently, I have been working with a friend of mine in developing a 
+                compiler for our Java/C inspired language. Going forward, I wish to 
+                work on larger projects in industry and learn from more experienced 
+                developers.
+                
 
-                I only know what to put on the blog tab.
+                <h3> FAQ </h3>
+                <h4> What is this? </h4>
+                <span>
+                    This website is intended to serve multiple purposes. This website started out as an excuse to learn React, which very quickly 
+                    became an excuse to try out Nextjs and deploying to Vercel. I didn't have much of an objective at the time, so I was thinking about 
+                    making a mockup of what I would have liked for my personal website to look like. However, I ended up investing enough time into this 
+                    that I've decided that this mock up will serve as my actual personal website. <br/> <br/>
+                    Since I dont think there's much substance to put on a personal website, I've also made the executive decision to make content. This isn't 
+                    by any means particularly cool or good content, but I will sporadically post ramblings on the "Blog" tab. Hopefully this will make the website
+                    feel a little less empty. <br/> <br/>
+                </span>
+                <h4> Why does the website look like this? </h4>
+                <span>
+                    Honestly, I'm not very good with design, and I harbor strong feelings against the modern Javascript ecosystem. It feels incredibly uncomfortable 
+                    importing many large javascript front end libraries just to make clicking a button have a nice effect. I agree that it's cool, but I don't think 
+                    its worth the extra megabyte or two. <br/><br/>
+                    The color scheme and the layout are a result of me tinkering around for an afternoon until I thought it looked "presentable". I asked for feedback 
+                    and got incredibly mediocre reviews, even after adjusting to their criticism. Getting better at design is a great work in progress, and I do not 
+                    expect to become a design god by finishing this project. 
+                </span>
+                <h4> When was this last updated? </h4>
+                <span id="github-date" > Retrieving . . . </span>
+
             </MContent>
 
 
 
 
-      </Layout>
-
-    // <div className="container">
-    //   <Head>
-    //     <title>Create Next App</title>
-    //     <link rel="icon" href="/favicon.ico" />
-    //   </Head>
-
-    //   <main>
-    //     <h1 className="title">
-    //       what the fuck does this{' '} do
-    //       <Link href="/britain/boris">
-    //       <a href="https://nextjs.org">Next.js!</a>
-    //       </Link>
-          
-    //     </h1>
-
-    //     <p className="description">
-    //       Get started by editing <code>pages/index.js</code>
-    //     </p>
-
-    //     <div className="grid">
-    //       <a href="https://nextjs.org/docs" className="card">
-    //         <h3>Documentation &rarr;</h3>
-    //         <p>Find in-depth information about Next.js features and API.</p>
-    //       </a>
-
-    //       <a href="https://nextjs.org/learn" className="card">
-    //         <h3>Learn &rarr;</h3>
-    //         <p>Learn about Next.js in an interactive course with quizzes!</p>
-    //       </a>
-
-    //       <a
-    //         href="https://github.com/vercel/next.js/tree/master/examples"
-    //         className="card"
-    //       >
-    //         <h3>Examples &rarr;</h3>
-    //         <p>Discover and deploy boilerplate example Next.js projects.</p>
-    //       </a>
-
-    //       <a
-    //         href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-    //         className="card"
-    //       >
-    //         <h3>Deploy &rarr;</h3>
-    //         <p>
-    //           Instantly deploy your Next.js site to a public URL with Vercel.
-    //         </p>
-    //       </a>
-    //     </div>
-    //   </main>
-
-    //   <footer>
-    //     <a
-    //       href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Powered by{' '}
-    //       <img src="/vercel.svg" alt="Vercel" className="logo" />
-    //     </a>
-    //   </footer>
-
-    //   <style jsx>{`
-    //     .container {
-    //       min-height: 100vh;
-    //       padding: 0 0.5rem;
-    //       display: flex;
-    //       flex-direction: column;
-    //       justify-content: center;
-    //       align-items: center;
-    //     }
-
-    //     main {
-    //       padding: 5rem 0;
-    //       flex: 1;
-    //       display: flex;
-    //       flex-direction: column;
-    //       justify-content: center;
-    //       align-items: center;
-    //     }
-
-    //     footer {
-    //       width: 100%;
-    //       height: 100px;
-    //       border-top: 1px solid #eaeaea;
-    //       display: flex;
-    //       justify-content: center;
-    //       align-items: center;
-    //     }
-
-    //     footer img {
-    //       margin-left: 0.5rem;
-    //     }
-
-    //     footer a {
-    //       display: flex;
-    //       justify-content: center;
-    //       align-items: center;
-    //     }
-
-    //     a {
-    //       color: inherit;
-    //       text-decoration: none;
-    //     }
-
-    //     .title a {
-    //       color: #0070f3;
-    //       text-decoration: none;
-    //     }
-
-    //     .title a:hover,
-    //     .title a:focus,
-    //     .title a:active {
-    //       text-decoration: underline;
-    //     }
-
-    //     .title {
-    //       margin: 0;
-    //       line-height: 1.15;
-    //       font-size: 4rem;
-    //     }
-
-    //     .title,
-    //     .description {
-    //       text-align: center;
-    //     }
-
-    //     .description {
-    //       line-height: 1.5;
-    //       font-size: 1.5rem;
-    //     }
-
-    //     code {
-    //       background: #fafafa;
-    //       border-radius: 5px;
-    //       padding: 0.75rem;
-    //       font-size: 1.1rem;
-    //       font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-    //         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    //     }
-
-    //     .grid {
-    //       display: flex;
-    //       align-items: center;
-    //       justify-content: center;
-    //       flex-wrap: wrap;
-
-    //       max-width: 800px;
-    //       margin-top: 3rem;
-    //     }
-
-    //     .card {
-    //       margin: 1rem;
-    //       flex-basis: 45%;
-    //       padding: 1.5rem;
-    //       text-align: left;
-    //       color: inherit;
-    //       text-decoration: none;
-    //       border: 1px solid #eaeaea;
-    //       border-radius: 10px;
-    //       transition: color 0.15s ease, border-color 0.15s ease;
-    //     }
-
-    //     .card:hover,
-    //     .card:focus,
-    //     .card:active {
-    //       color: #0070f3;
-    //       border-color: #0070f3;
-    //     }
-
-    //     .card h3 {
-    //       margin: 0 0 1rem 0;
-    //       font-size: 1.5rem;
-    //     }
-
-    //     .card p {
-    //       margin: 0;
-    //       font-size: 1.25rem;
-    //       line-height: 1.5;
-    //     }
-
-    //     .logo {
-    //       height: 1em;
-    //     }
-
-    //     @media (max-width: 600px) {
-    //       .grid {
-    //         width: 100%;
-    //         flex-direction: column;
-    //       }
-    //     }
-    //   `}</style>
-
-    //   <style jsx global>{`
-    //     html,
-    //     body {
-    //       padding: 0;
-    //       margin: 0;
-    //       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    //         Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    //         sans-serif;
-    //     }
-
-    //     * {
-    //       box-sizing: border-box;
-    //     }
-    //   `}</style>
-    // </div>
-  )
+        </Layout>)
 }

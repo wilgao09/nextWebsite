@@ -3,6 +3,9 @@
     display: inline-block;
     cursor: pointer;
     padding: 8px 12px 8px 12px;
+    color:white;
+    font-size:xx-large;
+    white-space: pre;
 
     /* temp styles */
     background-color: var(--viridian-green);
@@ -10,4 +13,24 @@
 
 .nb-sel {
     background-color: var(--ocean-green);
+}
+
+.nb-home {
+    display: block;
+    background-color: var(--viridian-green);
+}
+
+@media only screen and (max-width: 600px)
+{
+    .nb-home {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .nb-home {
+        left:0px;
+        position:absolute;
+    }
 }

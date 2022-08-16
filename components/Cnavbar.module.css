@@ -1,11 +1,25 @@
 
 .nb-navbar {
     min-width: 50%;
-    text-align:center;
+    height: fit-content;
 
     /* temp styles */
     background-color: var(--viridian-green);
     /* note make this the same color as nb-button */
-    box-shadow: 0px 8px var(--ocean-green);
+    /* box-shadow: 0px 8px var(--ocean-green); */
     /* margin-bottom: 20px; */
+}
+
+@media only screen and (max-width: 600px)
+{
+    .nb-navbar {
+        text-align:center;
+    }
+}
+
+@media only screen and (min-width: 1200px)
+{
+    .nb-navbar {
+        text-align:right;
+    }
 }

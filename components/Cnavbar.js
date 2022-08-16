@@ -42,6 +42,7 @@ class NavBar extends Component {
             ind = {ind}
             sel = {ind == this.state.sel}
             oclick = {this.swapFocus}
+            terminal = {this.props.terminal}
         />})
         return (
             <div className={styles["nb-navbar"]}>

@@ -7,6 +7,7 @@ import React from "react";
 import Header from '../../components/Cheader'
 import Layout from '../../components/Clayout'
 import MContent from '../../components/MContent'
+import Head from 'next/head'
 
 function processID(s) {
     let b = Blogs[s]?? 
@@ -24,6 +25,7 @@ export default function BlogPost() {
     if (blogno) {
         return ( 
             <Layout>
+            <Head> <title> {blogno.substring(8)} </title> </Head>
             <Header tno={2}/>
             <MContent>
                 <Markdown>{processID(blogno)}</Markdown> 
