@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "cd scripts && node compileBlogs.js && cd .. && next dev",
-    "build": "cd scripts && node compileBlogs.js && cd .. && next build",
-    "start": "cd scripts && node compileBlogs.js && cd .. && next start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "markdown-to-jsx": "^7.1.7",
