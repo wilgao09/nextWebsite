@@ -6,7 +6,7 @@ import MContent from "../components/MContent";
 
 export default function Projects(props) {
   return (
-    <Layout terminal={props.terminal}>
+    <Layout terminal={props.terminal} location={"/projects"} title="Projects">
       <Head>
         <title> Projects </title>
       </Head>

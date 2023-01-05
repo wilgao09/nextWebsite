@@ -14,7 +14,7 @@ During development, I did not pay attention to the amount of memory I was using,
 
 ## Diagnostics -- mysqld
 
-From looking at `top`, we can see that `mysqld` alone takes 36% of the less than 1 gigabyte of RAM that I have. Yikes! We find that this is due to the default configuration of `mysqld`. So we fiddle around with the config file. Luckily, there's a stackoverflow post going over the important knobs and switches that I will link [here](https://stackoverflow.com/questions/40189226/how-to-make-mysql-use-less-memory) for future reference. With a modified configuration, we're down to 12.5% memory usage (a whopping 65% decrease in memory). These cuts are OK because we aren't doing anything intense with this database: it will insert records very sparingly, and when I get to visualizing, it will retrieve all data (also very sparingly).
+From looking at `top`, we can see that `mysqld` alone takes 36% of the less than 1 gigabyte of RAM that I have. Yikes! We find that this is due to the default configuration of `mysqld`, so we fiddle around with the config file. Luckily, there's a stackoverflow post going over the important knobs and switches that I will link [here](https://stackoverflow.com/questions/40189226/how-to-make-mysql-use-less-memory) for future reference. With a modified configuration, we're down to 12.5% memory usage (a whopping 65% decrease in memory). These cuts are OK because we aren't doing anything intense with this database: it will insert records very sparingly, and when I get to visualizing, it will retrieve all data (also very sparingly).
 
 ## Diagnostics -- gradlew
 
@@ -24,7 +24,7 @@ When gradlew runs (even from a fresh boot), it takes all of the CPU across a few
 
 ## Reasoning
 
-How could freeing up ~20% of my RAM speed up build time by 99%? For science, we investigate process resource usage suing `/usr/bin/time -v <cmd>`. The command watches an input command as it executes and gives interesting diagnostic information. We're interested in hte folowing stats:
+How could freeing up ~20% of my RAM speed up build time by 99%? For science, we investigate process resource usage using `/usr/bin/time -v <cmd>`. The command watches an input command as it executes and gives interesting diagnostic information. We're interested in the folowing stats:
 
 - Maximum resident set size (kbytes)
 
@@ -78,7 +78,7 @@ Waiting 20 minutes we get the following stats:
 
 As suspected, the 20% memory saved using the modified mysql config file prevented almost a million page faults.
 
-As an aside, it should have occured to me earlier that `kswapd` was the daemon for swapping pages. Would've saved a lot fo troubleshooting.
+As an aside, it should have occured to me earlier that `kswapd` was the daemon for swapping pages. Would've saved a lot of troubleshooting.
 
 ## TL;DR
 
