@@ -44,7 +44,7 @@ export default function Home(props) {
                             borderRadius: "50%",
                             objectFit: "cover",
                         }}
-                        src="https://www.the-philosophy.com/wp-content/uploads/2012/04/Thomas_Hobbes-570x381.jpg"
+                        src="pfp.jpg"
                         alt="Image of me"
                     ></img>
                     <div className={styles["details"]}>
