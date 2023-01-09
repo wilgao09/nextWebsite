@@ -1,14 +1,24 @@
 /* CSS HEX */
 :root {
-  --dark-byzantium: #6c3a5cff;
+    /* --dark-byzantium: #6c3a5cff;
   --castleton-green: rgb(23, 93, 67);
   --chinese-red: #b02e0cff;
   --ocean-green: #26c485ff;
-  --viridian-green: #32908fff;
+  --viridian-green: #32908fff; */
+
+    --blue-terracotta: #4a3b5b;
+    --header: #d2b1a1;
+    --background: #e0d3cc;
+    --blog: #cca790;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("Roboto-Light.ttf");
 }
 
 body {
-  background-color: lightgreen;
-  margin: 0px;
-  padding: 0px;
+    background-color: var(--background);
+    margin: 0px;
+    padding: 0px;
 }

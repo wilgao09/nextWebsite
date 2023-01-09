@@ -1,56 +1,60 @@
-import React, {Component} from "react/cjs/react.production.min";
-import NBButton from './NBButton'
-import styles from './Cnavbar.module.css'
+import React, { Component } from "react/cjs/react.production.min";
 
-/**
- * 
- * REMVOE TEH STATE FROM THIS 
- * 
- */
-class NavBar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            sel : props.sel,
-            tags : props.tags
-        }
+import styles from "./Cnavbar.module.css";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-        this.swapFocus = this.swapFocus.bind(this)
+function discoverClass(criteria, classlist, newclass) {
+    let tor = "";
+    for (let i of classlist) {
+        tor += styles[`${i}`] + " ";
     }
-
-    swapFocus(nFoc) {
-        this.setState({"sel":nFoc})
-        
+    if (criteria) {
+        return tor + " " + styles[`${newclass}`];
     }
-
-
-
-    render() {
-        let bttns = []
-        // for (let i = 0 ;i < this.state.lbls.length; i++) {
-        //     bttns[i] = <NBButton 
-        //         lbl={this.state.lbls[i]} 
-        //         goto={this.state.gotos[i]}
-        //         sel = {(i==this.state.sel)}
-        //     />
-        // }
-        bttns = this.state.tags.map((o,ind) => {
-            return <NBButton
-            lbl = {o.lbl}
-            goto={o.goto}
-            key = {ind}
-            ind = {ind}
-            sel = {ind == this.state.sel}
-            oclick = {this.swapFocus}
-            terminal = {this.props.terminal}
-        />})
-        return (
-            <div className={styles["nb-navbar"]}>
-                {bttns}
-            </div>
-        )
-    }
+    return tor;
 }
 
+function NavBar({ home, tags }) {
+    const router = useRouter();
 
-export default NavBar
+    let location = router.pathname;
+
+    return (
+        <div className={styles["nb-navbar"]}>
+            <div className={styles["left"]}>
+                <Link href={home.goto}>
+                    <div
+                        className={
+                            styles[home.goto === location ? "selected" : ""] +
+                            " " +
+                            styles["nb-button"]
+                        }
+                    >
+                        {home.lbl}
+                    </div>
+                </Link>
+            </div>
+            <div className={styles["right"]}>
+                {tags.map((x, i) => (
+                    <Link href={x.goto} key={x.goto + " " + i}>
+                        <div
+                            className={
+                                styles[x.goto === location ? "selected" : ""] +
+                                " " +
+                                styles["nb-button"]
+                            }
+                        >
+                            <span className={styles["underlined"]}>
+                                {x.lbl}
+                            </span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default NavBar;

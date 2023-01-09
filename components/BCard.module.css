@@ -1,7 +1,5 @@
-
-
 .card {
-    background-color: lightgoldenrodyellow;
+    background-color: var(--blog);
     margin: 8px 1px;
     cursor: pointer;
 }
@@ -10,10 +8,11 @@
     font-size: larger;
     font-weight: bold;
     padding: 8px;
+    color: #32293d;
 }
 
 .card-date {
-    color: grey;
+    color: #37313d;
     font-size: smaller;
     padding: 0px 2px 2px 24px;
 }
