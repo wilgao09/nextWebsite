@@ -1,4 +1,4 @@
-import React, { Component } from "react/cjs/react.production.min";
+import React, { Component } from "react";
 
 import styles from "./Cnavbar.module.css";
 import Link from "next/link";
@@ -24,28 +24,29 @@ function NavBar({ home, tags }) {
     return (
         <div className={styles["nb-navbar"]}>
             <div className={styles["left"]}>
-                <Link href={home.goto}>
-                    <div
-                        className={
-                            styles[home.goto === location ? "selected" : ""] +
-                            " " +
-                            styles["nb-button"]
-                        }
-                    >
-                        {home.lbl}
-                    </div>
+                <Link
+                    href={home.goto}
+                    className={
+                        (home.goto === location ? styles["selected"] : "") +
+                        " " +
+                        styles["nb-button"]
+                    }
+                >
+                    <span>{home.lbl}</span>
                 </Link>
             </div>
             <div className={styles["right"]}>
                 {tags.map((x, i) => (
-                    <Link href={x.goto} key={x.goto + " " + i}>
-                        <div
-                            className={
-                                styles[x.goto === location ? "selected" : ""] +
-                                " " +
-                                styles["nb-button"]
-                            }
-                        >
+                    <Link
+                        href={x.goto}
+                        key={x.goto + " " + i}
+                        className={
+                            (home.goto === location ? styles["selected"] : "") +
+                            " " +
+                            styles["nb-button"]
+                        }
+                    >
+                        <div>
                             <span className={styles["underlined"]}>
                                 {x.lbl}
                             </span>

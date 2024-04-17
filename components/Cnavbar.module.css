@@ -1,5 +1,5 @@
 .nb-navbar {
-    height: fit-content;
+    /* height: fit-content; */
 
     /* temp styles */
     background-color: var(--header);
@@ -16,6 +16,8 @@
 .nb-button {
     padding: 8px;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--blue-terracotta);
 }
 
 .underlined {
